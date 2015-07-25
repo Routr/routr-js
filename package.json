@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "del": "*",
+    "gulp": "^3.8.11",
+    "gulp-minify-css": "*",
+    "gulp-notify": "^2.2.0",
+    "gulp-ruby-sass": "^0.7.1",
+    "gulp-server-livereload": "*",
+    "gulp-uglify": "*",
+    "main-bower-files": "*",
+    "run-sequence": "^1.1.2"
+  }
+}
