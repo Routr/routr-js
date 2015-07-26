@@ -2,6 +2,7 @@
 bower_components
 node_modules
 .sass-cache
-/public/css/**/*
-/public/img/*
+/public/css/vendor/**/*
+/public/css/font/**/*
+/public/img/**/*
 /public/js/vendor/**/*
