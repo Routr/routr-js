@@ -6,7 +6,9 @@ var gulp = require('gulp'), 
     server = require('gulp-server-livereload'),
     uglify = require('gulp-uglify'),
     minifyCss = require('gulp-minify-css'),
-    runSequence = require('run-sequence')
+    runSequence = require('run-sequence'),
+    plumber = require('gulp-plumber'),
+    jshint = require('jshint-stylish')
 
 
 var config = {
@@ -16,6 +18,11 @@ var config = {
     jsPath: './public/js/vendor'
 }
 
+var notifyError = function() {
+    return plumber({
+      errorHandler: notify.onError('Error: <%= error.message %>')
+    });
+};
 
 gulp.task('icons:fontawesome', function() { 
     return gulp.src(config.bowerDir + '/fontawesome/fonts/**.*') 
@@ -114,3 +121,13 @@ gulp.task('watch', ['server', 'watchList']);
 // -- DEFAULT -- //
 
   gulp.task('default', ['sass', 'icons', 'bower']);
+
+// -- jshint linter -- //
+
+gulp.task('hint:js', function(){
+    return gulp.src(['./public/js/*.js', './public/js/**.*.js', '!./public/js/vendor/*'])
+    .pipe(notifyError())
+    .pipe(jshint())
+    .pipe(jshint.reporter('fail'))
+    .pipe(jshint.reporter('jshint-stylish'));
+});

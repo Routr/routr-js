@@ -116,8 +116,8 @@ function codeAddress() {
 }
 
 function appendAddress(address,index) {
-  return '<div class="side-menu" id=location-' 
-  + index + '><i class="fa fa-times-circle delete"></i> ' 
+  return '<div class="side-menu" id=location-'
+  + index + '><i class="fa fa-times-circle delete"></i> '
   + '<a class ="link">'
   + address + '</a></div>'
 }
@@ -127,7 +127,7 @@ function setTrip() {
   for (var i = 0; i < locations.length;  i++) {
     var loc = locations[i]
     var coords = loc.getPosition();
-    if (google.maps.geometry.poly.containsLocation(coords,selectedShape) 
+    if (google.maps.geometry.poly.containsLocation(coords,selectedShape)
       && loc.getMap() && loc != home) trip.push({
         location: coords
       });
@@ -187,7 +187,7 @@ function initialize() {
 
 	geocoder = new google.maps.Geocoder;
   depot = new google.maps.LatLng(dep_lat,dep_lng);
-  
+
   // addMarker(depot,"Nature's Garden");
   geocodeAddress(home_address);
 
@@ -300,7 +300,7 @@ function initialize() {
 
 
   });
-      
+
   //controls
 	var deleteDiv = document.createElement('div');
   var showDiv = document.createElement('div');
